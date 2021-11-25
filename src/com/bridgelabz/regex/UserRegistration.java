@@ -27,6 +27,6 @@ public class UserRegistration {
 
     private void display() {
         System.out.println("\nUser Data:-\n\tFirst Name : " + firstName + "\n\tLast Name : " + lastName + "\n\tEmail : "
-                + email + "\n\tPhone Number : " + phoneNumber+ "\n\tPassword : " + password);
+                + email + "\n\tPhone Number : " + phoneNumber + "\n\tPassword : " + password);
     }
 }
