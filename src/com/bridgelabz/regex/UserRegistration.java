@@ -5,7 +5,7 @@ public class UserRegistration {
     private String firstName, lastName, email, password, phoneNumber;
 
     public static void main(String[] args) {
-        UserResgistration user = new UserResgistration();
+        UserRegistration user = new UserRegistration();
         Pattern pattern = new Pattern();
 
 		/*pattern.addFirstName();
