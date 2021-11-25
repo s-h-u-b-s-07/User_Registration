@@ -8,19 +8,19 @@ public class UserRegistration {
         UserResgistration user = new UserResgistration();
         Pattern pattern = new Pattern();
 
-        pattern.addFirstName(); // First Name Adding
-        user.firstName = pattern.getFirstName();
+		/*pattern.addFirstName();
+		user.firstName = pattern.getFirstName();
 
-        pattern.addLastName(); // Last Name Adding
-        user.lastName = pattern.getLastName();
+		pattern.addLastName();
+		user.lastName = pattern.getLastName();
 
-        pattern.addEmail(); // Email Adding
-        user.email = pattern.getEmail();
+		pattern.addEmail();
+		user.email = pattern.getEmail();
 
-        pattern.addPhoneNumber(); // Phone Number Adding
-        user.phoneNumber = pattern.getPhoneNumber();
+		pattern.addPhoneNumber();
+		user.phoneNumber = pattern.getPhoneNumber();*/
 
-        pattern.addPassword(); // Password Adding
+        pattern.addPassword();
         user.password = pattern.getPassword();
         user.display();
     }
