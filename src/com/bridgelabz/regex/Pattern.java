@@ -32,7 +32,7 @@ public class Pattern {
             System.out.println("Valid");
         } else {
             System.out.println("Invalid Add again(Eg:Shubham)");
-            isValidFirstName();
+//            isValidFirstName();
         }
         return check;
     }
@@ -49,24 +49,24 @@ public class Pattern {
             System.out.println("Valid");
         } else {
             System.out.println("Invalid Add again (Eg:Gawali)");
-            addLastName();
+//            addLastName();
         }
         return check;
     }
 
-    public boolean addEmail() {
+    public boolean addEmail(String emailAddress) {
 
         UserData userdata = UserData.getInstance();
-        System.out.print("Enter Email : ");
-        email = sc.nextLine();
+//        System.out.print("Enter Email : ");
+//        email = sc.nextLine();
 
         boolean check = email.matches("^[0-9a-zA-Z+-._]+@[-+_.0-9a-zA-Z]*.[a-zA-Z]{2,3}.([a-zA-z]{2,3})*$");
         if (check == true) {
-            userdata.setEmail(email);
+//            userdata.setEmail(email);
             System.out.println("Valid");
         } else {
             System.out.println("Invalid Email please Add again (Eg:abc.pqr@bl.co.in)");
-            addEmail();
+//            addEmail();
         }
         return check;
     }
@@ -83,7 +83,7 @@ public class Pattern {
             System.out.println("Valid");
         } else {
             System.out.println("Invalid Phone Number please Add again (Eg:91 7512694566)");
-            addPhoneNumber();
+//            addPhoneNumber();
         }
         return check;
     }
@@ -96,11 +96,11 @@ public class Pattern {
         userdata.setPassword(password);
         boolean check = password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*(@)).{8,}$");
         if (check == true) {
-            userdata.setPassword(password);
+//            userdata.setPassword(password);
             System.out.println("Valid");
         } else {
             System.out.println("Invalid password format \\nAdd again [Atleast 8 Character, 1 Upper Case, Atleast one numeric number]");
-            addPassword();
+//            addPassword();
         }
         return check;
     }
