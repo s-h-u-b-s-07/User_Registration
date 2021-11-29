@@ -1,5 +1,6 @@
 package com.bridgelabz.regex;
 
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -52,7 +53,8 @@ public class UserRegistrationTest {
     }
 
     @Test
-    public void testAddedPhoneNumberShouldBeValid() {
+    public void
+    testAddedPhoneNumberShouldBeValid() {
         pattern.addPhoneNumber();
         assertEquals(true, userdata.getPhoneNumber().matches("^([0-9]{1,2})\\s([0-9]{10})$"));
     }

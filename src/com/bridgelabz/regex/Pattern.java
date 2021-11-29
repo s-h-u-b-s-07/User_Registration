@@ -65,7 +65,7 @@ public class Pattern {
             userdata.setEmail(email);
             System.out.println("Valid");
         } else {
-            System.out.println("Invalid Email Add again (Eg:abc.pqr@bl.co.in)");
+            System.out.println("Invalid Email please Add again (Eg:abc.pqr@bl.co.in)");
             addEmail();
         }
         return check;
@@ -82,7 +82,7 @@ public class Pattern {
             userdata.setPhoneNumber(phoneNumber);
             System.out.println("Valid");
         } else {
-            System.out.println("Invalid Phone Number Add again (Eg:91 7512694566)");
+            System.out.println("Invalid Phone Number please Add again (Eg:91 7512694566)");
             addPhoneNumber();
         }
         return check;

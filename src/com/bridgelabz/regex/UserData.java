@@ -4,8 +4,8 @@ public class UserData {
     public static UserData instance;
     private String firstName;
     private String lastName;
-    private String email;
     private String phoneNumber;
+    private String email;
     private String password;
 
     private UserData(){

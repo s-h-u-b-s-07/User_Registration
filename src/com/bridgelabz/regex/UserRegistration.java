@@ -1,7 +1,7 @@
 package com.bridgelabz.regex;
 
 public class UserRegistration {
-    private String firstName, lastName, email, password, phoneNumber;
+    private String firstName, lastName, email, phoneNumber, password,;
 
     public static void main(String[] args) {
 
