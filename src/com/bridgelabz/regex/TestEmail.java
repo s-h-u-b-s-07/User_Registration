@@ -53,12 +53,12 @@ public class TestEmail {
                 {"abc.@gmail.com11",false},
                 {"abc()*@gmail.com",false},
                 {"abc@%*.com",false},
-                {"abc..2002@gmail.com",false},
+                {"abc..1001@gmail.com",false},
                 {"abc@gmail.com.aa.au",false},});
     }
 
     @Test
-    public void testValidEmails() {
+    public void testValidEmails() throws InvalidUserDetailsException {
         assertEquals(expectedResult,pattern.addEmail(emailAddress));
     }
 }
