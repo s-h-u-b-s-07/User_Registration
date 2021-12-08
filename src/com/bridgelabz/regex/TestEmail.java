@@ -5,7 +5,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -18,7 +17,7 @@ public class TestEmail {
     private boolean expectedResult;
     private static Pattern pattern;
 
-    public TestEmail(String emailAddress, boolean expectedResult) {
+    public EmailTest(String emailAddress, boolean expectedResult) {
         super();
         this.emailAddress = emailAddress;
         this.expectedResult = expectedResult;
@@ -30,7 +29,6 @@ public class TestEmail {
     }
 
     @Parameterized.Parameters
-
     public static Collection input() {
         return Arrays.asList(new Object[][]{
                 {"abc@yahoo.com", true},
@@ -42,18 +40,18 @@ public class TestEmail {
                 {"abc@1.com",true},
                 {"abc@gmail.com.com",true},
                 {"abc+100@gmail.com",true},
-                {"abc@abc@gmail.com",false},
-                {"abc@gmail.com.1a",false},
-                {".abc@abc.com",false},
                 {"abc",false},
                 {".abc@.com.my",false},
                 {"abc123@gmail.a",false},
                 {"abc123@.com",false},
                 {"abc123@.com.com",false},
-                {"abc.@gmail.com11",false},
+                {".abc@abc.com",false},
                 {"abc()*@gmail.com",false},
                 {"abc@%*.com",false},
-                {"abc..1001@gmail.com",false},
+                {"abc..2002@gmail.com",false},
+                {"abc.@gmail.com11",false},
+                {"abc@abc@gmail.com",false},
+                {"abc@gmail.com.1a",false},
                 {"abc@gmail.com.aa.au",false},});
     }
 
@@ -61,4 +59,5 @@ public class TestEmail {
     public void testValidEmails() throws InvalidUserDetailsException {
         assertEquals(expectedResult,pattern.addEmail(emailAddress));
     }
+
 }

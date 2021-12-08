@@ -1,14 +1,15 @@
 package com.bridgelabz.regex;
 
 public class UserData {
+
     public static UserData instance;
     private String firstName;
     private String lastName;
-    private String phoneNumber;
     private String email;
+    private String phoneNumber;
     private String password;
 
-    private UserData(){
+    UserData() {
 
     }
 
@@ -43,19 +44,19 @@ public class UserData {
         this.email = email;
     }
 
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
-
     public String getPassword() {
         return password;
     }
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 }

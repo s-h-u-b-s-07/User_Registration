@@ -9,8 +9,92 @@ public class Pattern {
 
     Scanner sc = new Scanner(System.in);
 
-    public Pattern() {
+    void userEntry() throws InvalidUserDetailsException {
 
+        IUserRegistration isvalidateFirstName = (FirstName) -> {
+            try {
+                UserData userdata = new UserData();
+                System.out.print("Enter First Name : ");
+                String name = sc.nextLine();
+                userdata.setFirstName(name);
+                if (name.matches("^([A-Z]{1}+[a-z]{2,})*$"))
+                    return true;
+                throw new InvalidUserDetailsException("FirstName");
+            }catch(InvalidUserDetailsException e){
+                System.out.println(e.getMessage());
+            }
+            return false;
+        };
+        System.out.println(isvalidateFirstName.details(firstName));
+
+
+        IUserRegistration isvalidateLastName = (LastName) -> {
+            try {
+                UserData userdata = new UserData();
+                System.out.print("Enter Last Name : ");
+                String name = sc.nextLine();
+                userdata.setLastName(name);
+                if (name.matches("^([A-Z]{1}+[a-z]{2,})*$"))
+                    return true;
+                throw new InvalidUserDetailsException("LastName");
+            }catch(InvalidUserDetailsException e){
+                System.out.println(e.getMessage());
+            }
+            return false;
+        };
+        System.out.println(isvalidateLastName.details(lastName));
+
+
+        IUserRegistration isvalidateEmail = (email) -> {
+            try {
+                UserData userdata = new UserData();
+                System.out.print("Enter E-Mail ID : ");
+                String Email = sc.nextLine();
+                userdata.setEmail(Email);
+                if (Email.matches("^[0-9a-zA-Z+-._]+@[-+_.0-9a-zA-Z]{2,}.[a-zA-Z]{2,3}.([a-zA-z]{2,3})*$"))
+                    return true;
+                throw new InvalidUserDetailsException("Email");
+            }catch(InvalidUserDetailsException e){
+                System.out.println(e.getMessage());
+            }
+            return false;
+        };
+        System.out.println(isvalidateEmail.details(email));
+
+
+
+        IUserRegistration isvalidatePhoneNumber = (phoneNumber) -> {
+            try {
+                UserData userdata = new UserData();
+                System.out.print("Enter Phone Number : ");
+                String PhoneNumber = sc.nextLine();
+                userdata.setPhoneNumber(PhoneNumber);
+                if (PhoneNumber.matches("^([0-9]{1,2})\\s([0-9]{10})$"))
+                    return true;
+                throw new InvalidUserDetailsException("PhoneNumber");
+            }catch(InvalidUserDetailsException e){
+                System.out.println(e.getMessage());
+            }
+            return false;
+        };
+        System.out.println(isvalidatePhoneNumber.details(phoneNumber));
+
+
+        IUserRegistration isvalidatePassword = (password) -> {
+            try {
+                UserData userdata = new UserData();
+                System.out.print("Enter Password : ");
+                String Password = sc.nextLine();
+                userdata.setPassword(Password);
+                if (Password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*(@)).{8,}$"))
+                    return true;
+                throw new InvalidUserDetailsException("Password");
+            }catch(InvalidUserDetailsException e){
+                System.out.println(e.getMessage());
+            }
+            return false;
+        };
+        System.out.println(isvalidatePassword.details(password));
     }
 
     public static Pattern getInstance() {
@@ -18,134 +102,6 @@ public class Pattern {
             instance = new Pattern();
         }
         return instance;
-    }
-
-    public boolean isValidFirstName()  {
-
-        UserData userdata = UserData.getInstance();
-        System.out.print("Enter First Name : ");
-        firstName = sc.nextLine();
-        userdata.setFirstName(firstName);
-        boolean check = firstName.matches("^([A-Z]{1}+[a-z]{2,})*$");
-        try {
-            if (check == true) {
-
-                System.out.println("Valid");
-            } else {
-//			System.out.println("Invalid Add again(Eg:Jyotirmaya)");
-                throw new InvalidUserDetailsException("FirstName");
-//			isValidFirstName();
-            }
-        }catch(InvalidUserDetailsException e){
-            e.printStackTrace();
-        }
-        return check;
-    }
-
-    public boolean addLastName() {
-
-        UserData userdata = UserData.getInstance();
-        System.out.print("Enter Last Name : ");
-        lastName = sc.nextLine();
-        userdata.setLastName(lastName);
-        boolean check = lastName.matches("^([A-Z]{1}+[a-z]{2,})*$");
-        try {
-            if (check == true) {
-
-                System.out.println("Valid");
-            } else {
-                throw new InvalidUserDetailsException("LastName");
-//			addLastName();
-            }
-        }catch(InvalidUserDetailsException e) {
-            e.printStackTrace();
-        }
-        return check;
-    }
-
-    public boolean addEmail() {
-
-        UserData userdata = UserData.getInstance();
-        System.out.print("Enter Email : ");
-        email = sc.nextLine();
-        userdata.setEmail(email);
-//		System.out.print(email);
-        boolean check = email.matches("^[0-9a-zA-Z+-._]+@[-+_.0-9a-zA-Z]{2,}.[a-zA-Z]{2,3}.([a-zA-z]{2,3})*$");
-        try {
-            if (check == true) {
-//			userdata.setEmail(email);
-                System.out.println("Valid");
-            } else {
-                throw new InvalidUserDetailsException("Email");
-//			addEmail();
-            }
-        }catch(InvalidUserDetailsException e) {
-            e.printStackTrace();
-        }
-        return check;
-    }
-
-    public boolean addEmail(String email) {
-
-        UserData userdata = UserData.getInstance();
-
-        userdata.setEmail(email);
-//		System.out.print(email);
-        boolean check = email.matches("^[0-9a-zA-Z+-._]+@[-+_.0-9a-zA-Z]{2,}.[a-zA-Z]{2,3}.([a-zA-z]{2,3})*$");
-        try {
-            if (check == true) {
-//			userdata.setEmail(email);
-                System.out.println("Valid");
-            } else {
-                throw new InvalidUserDetailsException("Email");
-//			addEmail();
-            }
-        }catch(InvalidUserDetailsException e) {
-            e.printStackTrace();
-        }
-        return check;
-    }
-
-    public boolean addPhoneNumber()  {
-
-        UserData userdata = UserData.getInstance();
-        System.out.print("Enter Phone Number : ");
-        phoneNumber = sc.nextLine();
-        userdata.setPhoneNumber(phoneNumber);
-        boolean check = phoneNumber.matches("^([0-9]{1,2})\\s([0-9]{10})$");
-        try {
-            if (check == true) {
-
-                System.out.println("Valid");
-            } else {
-                throw new InvalidUserDetailsException("Phone");
-//			addPhoneNumber();
-            }
-        }catch(InvalidUserDetailsException e) {
-            e.printStackTrace();
-        }
-        return check;
-    }
-
-    public boolean addPassword() {
-
-        UserData userdata = UserData.getInstance();
-        System.out.print("Enter Password : ");
-        password = sc.nextLine();
-        userdata.setPassword(password);
-        boolean check = password.matches("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*(@)).{8,}$");
-        try {
-            if (check == true) {
-//			userdata.setPassword(password);
-                System.out.println("Valid");
-            } else {
-                throw new InvalidUserDetailsException("Password");
-//			addPassword();
-            }
-        }catch(InvalidUserDetailsException e) {
-            e.printStackTrace();
-        }
-        return check;
     }
 
 }
